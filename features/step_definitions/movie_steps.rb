@@ -15,7 +15,7 @@ end
 # Make sure that one string (regexp) occurs before or after another one
 #   on the same page
 
-Then(/I should see "(.*)" before "(.*)"/) do |_e1, _e2|
+Then(/I should see "(.*)" before "(.*)"/) do |e1, e2|
   #  ensure that that e1 occurs before e2.
   #  page.body is the entire content of the page as a string.
   expect(page.body).to match(/#{e1}.*#{e2}/m)
@@ -40,7 +40,7 @@ When(/I (un)?check the following ratings: (.*)/) do |_uncheck, _rating_list|
 end
 
 # Part 2, Step 3
-Then(/^I should (not )?see the following movies: (.*)$/) do |_no, _movie_list|
+Then(/^I should (not )?see the following movies: (.*)$/) do |no, movie_list|
   # Take a look at web_steps.rb Then /^(?:|I )should see "([^"]*)"$/
   movies = movie_list.split(', ')
   movies.each do |movie|
